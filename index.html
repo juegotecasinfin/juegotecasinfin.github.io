@@ -690,7 +690,88 @@
 
   footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
 
-  /* ─── RESPONSIVE ─── */
+  /* ─── PERSONAJES DECORATIVOS ─── */
+  .deco {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.92;
+  }
+
+  .hero { position: relative; }
+  .hero .deco-explosion {
+    width: 140px;
+    bottom: 40px;
+    left: 40px;
+    transform: rotate(-15deg);
+    animation: floatDeco 7s ease-in-out infinite;
+  }
+
+  .hero .deco-corazon-pelotas {
+    width: 120px;
+    bottom: 60px;
+    right: 60px;
+    transform: rotate(10deg);
+    animation: floatDeco 9s ease-in-out infinite reverse;
+  }
+
+  #quienes { position: relative; overflow: hidden; }
+  #quienes .deco-nube {
+    width: 130px;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.7;
+    transform: scaleX(-1);
+  }
+
+  #hacemos { position: relative; overflow: hidden; }
+  #hacemos .deco-tambores {
+    width: 110px;
+    top: 30px;
+    right: 30px;
+    opacity: 0.75;
+    transform: rotate(10deg);
+  }
+
+  #hacemos .deco-microfono {
+    width: 90px;
+    bottom: 30px;
+    left: 20px;
+    opacity: 0.7;
+    transform: rotate(-10deg);
+  }
+
+  #historia { position: relative; overflow: hidden; }
+  #historia .deco-gusano {
+    width: 160px;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.7;
+  }
+
+  #participa { position: relative; overflow: hidden; }
+  #participa .deco-corazon-rojo {
+    width: 110px;
+    top: 30px;
+    right: 40px;
+    opacity: 0.75;
+    animation: floatDeco 8s ease-in-out infinite;
+  }
+
+  #contacto { position: relative; overflow: hidden; }
+  #contacto .deco-pajaro {
+    width: 130px;
+    bottom: 20px;
+    right: 30px;
+    opacity: 0.7;
+    transform: scaleX(-1);
+  }
+
+  @keyframes floatDeco {
+    0%, 100% { transform: translateY(0) rotate(-15deg); }
+    50% { transform: translateY(-12px) rotate(-10deg); }
+  }
+
   @media (max-width: 700px) {
     nav { padding: 0 16px; }
     .nav-links { display: none; }
@@ -751,6 +832,8 @@
     <span>Scrolleá</span>
     <span>↓</span>
   </div>
+  <img src="JSF_Explosion.png" alt="" class="deco deco-explosion">
+  <img src="JSF_corazón_pelotas.png" alt="" class="deco deco-corazon-pelotas">
 </div>
 
 <!-- QUIÉNES SOMOS -->
@@ -789,6 +872,7 @@
       </div>
     </div>
   </div>
+  <img src="JSF_personaje_nube.png" alt="" class="deco deco-nube">
 </section>
 
 <!-- QUÉ HACEMOS -->
@@ -827,6 +911,8 @@
       </div>
     </div>
   </div>
+  <img src="JSF_tambores.png" alt="" class="deco deco-tambores">
+  <img src="JSF_micrófono.png" alt="" class="deco deco-microfono">
 </section>
 
 <!-- NUESTRO BARRIO -->
@@ -926,6 +1012,7 @@
       <a href="mailto:juegotecasinfin@yahoo.com.ar" class="btn btn-violeta">✉️ Escribinos</a>
     </div>
   </div>
+  <img src="JSF_corazón_rojo.png" alt="" class="deco deco-corazon-rojo">
 </section>
 
 <!-- REDES SOCIALES -->
@@ -1011,6 +1098,7 @@
       </div>
     </div>
   </div>
+  <img src="JSF_Pájaro_zanahoria.png" alt="" class="deco deco-pajaro">
 </section>
 
 <!-- FOOTER -->
