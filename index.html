@@ -827,6 +827,94 @@
     50% { transform: translateY(-12px) rotate(-10deg); }
   }
 
+  /* ─── CARRUSEL ─── */
+  .carousel {
+    position: relative;
+    width: 100%;
+    margin-top: 28px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.06);
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    aspect-ratio: 16/9;
+    background: rgba(92,39,84,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .carousel-placeholder {
+    font-size: 40px;
+    opacity: 0.3;
+  }
+
+  .carousel-placeholder-text {
+    font-size: 13px;
+    color: var(--suave);
+    font-weight: 600;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .carousel-btn:hover { background: #fff; }
+  .carousel-btn.prev { left: 10px; }
+  .carousel-btn.next { right: 10px; }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--violeta);
+    opacity: 0.2;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    border: none;
+  }
+
+  .carousel-dot.active { opacity: 0.8; }
+
   /* ─── HAMBURGUESA ─── */
   .hamburger {
     display: none;
@@ -950,6 +1038,36 @@
   function closeMenu() {
     document.getElementById('mobileMenu').classList.remove('open');
   }
+
+  // Carrusel
+  const carouselState = {};
+
+  function initCarousel(id, total) {
+    carouselState[id] = { current: 0, total };
+  }
+
+  function moveCarousel(id, dir) {
+    const state = carouselState[id];
+    state.current = (state.current + dir + state.total) % state.total;
+    updateCarousel(id);
+  }
+
+  function goToSlide(id, index) {
+    carouselState[id].current = index;
+    updateCarousel(id);
+  }
+
+  function updateCarousel(id) {
+    const state = carouselState[id];
+    document.getElementById('track-' + id).style.transform = `translateX(-${state.current * 100}%)`;
+    document.querySelectorAll('#dots-' + id + ' .carousel-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === state.current);
+    });
+  }
+
+  initCarousel('quienes', 3);
+  initCarousel('hacemos', 3);
+  initCarousel('participa', 3);
 </script>
 
 <!-- HERO -->
@@ -1020,8 +1138,86 @@
         </div>
       </div>
     </div>
+    <div class="carousel" id="carousel-quienes">
+      <div class="carousel-track" id="track-quienes">
+        <div class="carousel-slide">
+          <span class="carousel-placeholder">📷</span>
+          <span class="carousel-placeholder-text">Foto 1 — Próximamente</span>
+        </div>
+        <div class="carousel-slide">
+          <span class="carousel-placeholder">📷</span>
+          <span class="carousel-placeholder-text">Foto 2 — Próximamente</span>
+        </div>
+        <div class="carousel-slide">
+          <span class="carousel-placeholder">📷</span>
+          <span class="carousel-placeholder-text">Foto 3 — Próximamente</span>
+        </div>
+      </div>
+      <button class="carousel-btn prev" onclick="moveCarousel('quienes', -1)">‹</button>
+      <button class="carousel-btn next" onclick="moveCarousel('quienes', 1)">›</button>
+    </div>
+    <div class="carousel-dots" id="dots-quienes">
+      <button class="carousel-dot active" onclick="goToSlide('quienes', 0)"></button>
+      <button class="carousel-dot" onclick="goToSlide('quienes', 1)"></button>
+      <button class="carousel-dot" onclick="goToSlide('quienes', 2)"></button>
+    </div>
   </div>
   <img src="JSF_personaje_nube.png" alt="" class="deco deco-nube">
+</section>
+
+<!-- PARTICIPÁ -->
+<section id="participa">
+  <div class="container">
+    <span class="section-tag tag-celeste">Participá</span>
+    <h2 class="section-title">¡Sumate a la Juegoteca!</h2>
+    <p class="section-lead">
+      Desde hace más de 25 años, la Juegoteca la hacen los y las voluntarios. No importa el tiempo o la profesión que tengas, siempre hay un lugar para vos.
+    </p>
+    <div class="participa-grid">
+      <div class="participa-card pc-rojo">
+        <span class="icon">💚</span>
+        <h3>Donación de fondos</h3>
+        <p>Somos una asociación civil autónoma e independiente. Nos solventamos con aportes de personas e instituciones solidarias. Para seguir creciendo, necesitamos padrinos y madrinas.</p>
+      </div>
+      <div class="participa-card pc-celeste">
+        <span class="icon">🙌</span>
+        <h3>Voluntariado</h3>
+        <p>Talleristas, juegotecarios, bibliotecarios, asistentes de cine comunitario. También recibimos pasantes de carreras universitarias y terciarias. Te invitamos a acercarte.</p>
+      </div>
+      <div class="participa-card pc-naranja">
+        <span class="icon">📦</span>
+        <h3>Donación de cosas</h3>
+        <p>Para nuestra feria americana necesitamos ropa, ropa de cama, vajillas y utensilios. Para la juegoteca, juegos completos y artículos de librería.</p>
+      </div>
+    </div>
+    <div class="carousel" id="carousel-participa">
+      <div class="carousel-track" id="track-participa">
+        <div class="carousel-slide">
+          <span class="carousel-placeholder">📷</span>
+          <span class="carousel-placeholder-text">Foto 1 — Próximamente</span>
+        </div>
+        <div class="carousel-slide">
+          <span class="carousel-placeholder">📷</span>
+          <span class="carousel-placeholder-text">Foto 2 — Próximamente</span>
+        </div>
+        <div class="carousel-slide">
+          <span class="carousel-placeholder">📷</span>
+          <span class="carousel-placeholder-text">Foto 3 — Próximamente</span>
+        </div>
+      </div>
+      <button class="carousel-btn prev" onclick="moveCarousel('participa', -1)">‹</button>
+      <button class="carousel-btn next" onclick="moveCarousel('participa', 1)">›</button>
+    </div>
+    <div class="carousel-dots" id="dots-participa">
+      <button class="carousel-dot active" onclick="goToSlide('participa', 0)"></button>
+      <button class="carousel-dot" onclick="goToSlide('participa', 1)"></button>
+      <button class="carousel-dot" onclick="goToSlide('participa', 2)"></button>
+    </div>
+    <div style="text-align:center; margin-top: 36px;">
+      <a href="mailto:juegotecasinfin@yahoo.com.ar" class="btn btn-violeta">✉️ Escribinos</a>
+    </div>
+  </div>
+  <img src="JSF_corazon_rojo.png" alt="" class="deco deco-corazon-rojo">
 </section>
 
 <!-- QUÉ HACEMOS -->
@@ -1059,9 +1255,32 @@
         <p>Un espacio para ver, debatir y crear cine junto al barrio.</p>
       </div>
     </div>
+    <div class="carousel" id="carousel-hacemos">
+      <div class="carousel-track" id="track-hacemos">
+        <div class="carousel-slide">
+          <span class="carousel-placeholder">📷</span>
+          <span class="carousel-placeholder-text">Foto 1 — Próximamente</span>
+        </div>
+        <div class="carousel-slide">
+          <span class="carousel-placeholder">📷</span>
+          <span class="carousel-placeholder-text">Foto 2 — Próximamente</span>
+        </div>
+        <div class="carousel-slide">
+          <span class="carousel-placeholder">📷</span>
+          <span class="carousel-placeholder-text">Foto 3 — Próximamente</span>
+        </div>
+      </div>
+      <button class="carousel-btn prev" onclick="moveCarousel('hacemos', -1)">‹</button>
+      <button class="carousel-btn next" onclick="moveCarousel('hacemos', 1)">›</button>
+    </div>
+    <div class="carousel-dots" id="dots-hacemos">
+      <button class="carousel-dot active" onclick="goToSlide('hacemos', 0)"></button>
+      <button class="carousel-dot" onclick="goToSlide('hacemos', 1)"></button>
+      <button class="carousel-dot" onclick="goToSlide('hacemos', 2)"></button>
+    </div>
   </div>
   <img src="JSF_tambores.png" alt="" class="deco deco-tambores">
-  <img src="JSF_micrófono.png" alt="" class="deco deco-microfono">
+  <img src="JSF_microfono.png" alt="" class="deco deco-microfono">
 </section>
 
 <!-- NUESTRO BARRIO -->
@@ -1133,41 +1352,8 @@
   </div>
 </section>
 
-<!-- PARTICIPÁ -->
-<section id="participa">
-  <div class="container">
-    <span class="section-tag tag-celeste">Participá</span>
-    <h2 class="section-title">¡Sumate a la Juegoteca!</h2>
-    <p class="section-lead">
-      Desde hace más de 25 años, la Juegoteca la hacen los y las voluntarios. No importa el tiempo o la profesión que tengas, siempre hay un lugar para vos.
-    </p>
-    <div class="participa-grid">
-      <div class="participa-card pc-celeste">
-        <span class="icon">🙌</span>
-        <h3>Voluntariado</h3>
-        <p>Talleristas, juegotecarios, bibliotecarios, asistentes de cine comunitario. También recibimos pasantes de carreras universitarias y terciarias. Te invitamos a acercarte.</p>
-      </div>
-      <div class="participa-card pc-naranja">
-        <span class="icon">📦</span>
-        <h3>Donación de cosas</h3>
-        <p>Para nuestra feria americana necesitamos ropa, ropa de cama, vajillas y utensilios. Para la juegoteca, juegos completos y artículos de librería.</p>
-      </div>
-      <div class="participa-card pc-rojo">
-        <span class="icon">💚</span>
-        <h3>Donación de fondos</h3>
-        <p>Somos una asociación civil autónoma e independiente. Nos solventamos con aportes de personas e instituciones solidarias. Para seguir creciendo, necesitamos padrinos y madrinas.</p>
-      </div>
-    </div>
-    <div style="text-align:center; margin-top: 36px;">
-      <a href="mailto:juegotecasinfin@yahoo.com.ar" class="btn btn-violeta">✉️ Escribinos</a>
-    </div>
-  </div>
-  <img src="JSF_corazón_rojo.png" alt="" class="deco deco-corazon-rojo">
-</section>
-
 <!-- REDES SOCIALES -->
 <section id="redes">
-  <div class="container">
     <span class="section-tag tag-naranja">Seguinos</span>
     <h2 class="section-title">Estamos en las redes</h2>
     <p class="section-lead">
