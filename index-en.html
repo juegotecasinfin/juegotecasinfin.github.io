@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juegoteca Sin Fin — Boulogne, Buenos Aires</title>
+
+<!-- SEO -->
+<meta name="description" content="Juegoteca Sin Fin es una organización sin fines de lucro de Boulogne, Buenos Aires, que promueve el juego, la cultura y los derechos humanos desde 1998.">
+<meta name="keywords" content="Juegoteca Sin Fin, ONG Boulogne, talleres niños Buenos Aires, voluntariado San Isidro, organización comunitaria, juego libre, actividades culturales">
+<meta name="author" content="Juegoteca Sin Fin">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph (para compartir en redes) -->
+<meta property="og:title" content="Juegoteca Sin Fin — Playing and growing juntos en el barrio">
+<meta property="og:description" content="Organización comunitaria de Boulogne, Buenos Aires. Talleres artísticos, juego libre y actividades culturales para niños y adultos desde 1998.">
+<meta property="og:url" content="https://juegotecasinfin.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://juegotecasinfin.github.io/JSF_Logotipo_Barrilete_Juegoteca.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="JSF_Logotipo_Barrilete_Juegoteca.png">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --celeste:  #4BBDE8;
+    --naranja:  #F5A623;
+    --rojo:     #E8504A;
+    --violeta:  #5C2754;
+    --violeta-claro: #7A3870;
+    --fondo:    #FFFDF7;
+    --texto:    #2D2020;
+    --suave:    #6B5B5B;
+    --blanco:   #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,253,247,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(92,39,84,0.08);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--violeta);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-logo span { color: var(--rojo); }
+
+  .nav-links {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--suave);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover {
+    background: var(--violeta);
+    color: #fff;
+  }
+
+  .nav-ig {
+    background: linear-gradient(135deg, var(--naranja), var(--rojo));
+    color: #fff !important;
+    padding: 7px 16px !important;
+    border-radius: 999px !important;
+  }
+
+  .nav-ig:hover {
+    background: var(--violeta) !important;
+    color: #fff !important;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 24px 60px;
+    position: relative;
+    overflow: hidden;
+    background: var(--violeta);
+  }
+
+  /* Ondas de fondo */
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: var(--celeste);
+    opacity: 0.12;
+    top: -200px; left: -150px;
+    animation: float1 8s ease-in-out infinite;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: var(--naranja);
+    opacity: 0.1;
+    bottom: -150px; right: -100px;
+    animation: float2 10s ease-in-out infinite;
+  }
+
+  @keyframes float1 {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(30px, 20px) scale(1.05); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(-20px, -30px) scale(1.08); }
+  }
+
+  .hero-logo-wrap {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: #4BBDE8;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    animation: logoFloat 6s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 28px;
+  }
+
+  @keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 7vw, 72px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--naranja);
+  }
+
+  .hero-desc {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: rgba(255,255,255,0.8);
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 44px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: #fff;
+    padding: 7px 18px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    backdrop-filter: blur(4px);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 15px;
+    text-decoration: none;
+    transition: transform 0.18s, box-shadow 0.18s;
+    cursor: pointer;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+  .btn-donar {
+    background: #fff;
+    color: var(--violeta);
+    font-size: 16px;
+    padding: 14px 32px;
+    box-shadow: 0 0 0 3px var(--naranja);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .btn-donar:hover {
+    background: var(--naranja);
+    color: var(--violeta);
+    box-shadow: none;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 3px var(--naranja); }
+    50% { box-shadow: 0 0 0 6px var(--naranja), 0 0 20px rgba(245,166,35,0.4); }
+  }
+
+  .donar-banner {
+    background: linear-gradient(135deg, var(--naranja), var(--rojo));
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+    margin-top: 36px;
+  }
+
+  .donar-banner h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--violeta);
+    margin-bottom: 8px;
+  }
+
+  .donar-banner p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 20px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-donar-grande {
+    background: var(--violeta);
+    color: #fff;
+    font-size: 18px;
+    padding: 16px 40px;
+    border-radius: 999px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.18s, box-shadow 0.18s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+
+  .btn-donar-grande:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+  }
+  .btn-outline  { background: transparent; border: 2px solid rgba(255,255,255,0.5); color: #fff; }
+  .btn-violeta  { background: var(--violeta); color: #fff; }
+  .btn-rojo     { background: var(--rojo); color: #fff; }
+  .btn-celeste  { background: var(--celeste); color: var(--violeta); }
+  .btn-hero     { background: #4BBDE8; color: #2D2020; border: 2px solid #fff; font-weight: 800; }
+  .btn-hero:hover { background: #fff; color: var(--violeta); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    z-index: 1;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ─── SECCIONES GENERALES ─── */
+  section {
+    padding: 80px 24px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+
+  .tag-celeste  { background: var(--celeste);  color: var(--violeta); }
+  .tag-naranja  { background: var(--naranja);  color: var(--violeta); }
+  .tag-rojo     { background: var(--rojo);     color: #fff; }
+  .tag-violeta  { background: var(--violeta);  color: #fff; }
+
+  .section-title {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 800;
+    color: var(--violeta);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .section-lead {
+    font-size: 17px;
+    color: var(--suave);
+    line-height: 1.8;
+    max-width: 680px;
+    margin-bottom: 12px;
+  }
+
+  /* ─── QUIENES SOMOS ─── */
+  #quienes {
+    background: #fff;
+  }
+
+  .quienes-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .quienes-visual {
+    position: relative;
+  }
+
+  .quienes-card {
+    background: var(--violeta);
+    border-radius: 24px;
+    padding: 36px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quienes-card::before {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: var(--celeste);
+    opacity: 0.12;
+    top: -60px; right: -60px;
+  }
+
+  .quienes-card .año {
+    font-size: 80px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+    margin-bottom: -20px;
+  }
+
+  .quienes-card p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.88);
+    position: relative;
+    z-index: 1;
+  }
+
+  .quienes-card strong { color: var(--naranja); }
+
+  .stat-chips {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .stat-chip {
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 10px 16px;
+    text-align: center;
+  }
+
+  .stat-chip .num {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--naranja);
+    display: block;
+  }
+
+  .stat-chip .lbl {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ─── QUE HACEMOS ─── */
+  #hacemos {
+    background: var(--fondo);
+  }
+
+  .talleres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .taller {
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(92,39,84,0.07);
+    border-top: 5px solid;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .taller:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(92,39,84,0.12);
+  }
+
+  .taller .icon { font-size: 40px; margin-bottom: 12px; display: block; }
+  .taller h3 { font-size: 17px; font-weight: 800; color: var(--violeta); margin-bottom: 8px; }
+  .taller p  { font-size: 13px; color: var(--suave); line-height: 1.6; }
+
+  .t-celeste  { border-color: var(--celeste); }
+  .t-naranja  { border-color: var(--naranja); }
+  .t-rojo     { border-color: var(--rojo); }
+  .t-violeta  { border-color: var(--violeta); }
+  .t-celeste2 { border-color: #7BD8F0; }
+
+  /* ─── NUESTRO BARRIO ─── */
+  #barrio {
+    background: var(--celeste);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #barrio::after {
+    content: '🏘️';
+    position: absolute;
+    font-size: 200px;
+    right: -20px;
+    bottom: -30px;
+    opacity: 0.08;
+  }
+
+  #barrio .section-title { color: var(--violeta); }
+  #barrio .section-lead  { color: rgba(45,32,32,0.75); }
+
+  .barrio-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .barrio-card {
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    padding: 24px;
+    border: 1.5px solid rgba(255,255,255,0.7);
+  }
+
+  .barrio-card h3 { font-size: 17px; font-weight: 800; color: var(--violeta); margin-bottom: 6px; }
+  .barrio-card p  { font-size: 14px; color: var(--texto); line-height: 1.6; }
+
+  /* ─── HISTORIA ─── */
+  #historia {
+    background: #fff;
+  }
+
+  .timeline {
+    margin-top: 40px;
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--celeste), var(--naranja), var(--rojo));
+    border-radius: 3px;
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 36px;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -27px;
+    top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--violeta);
+    background: var(--violeta);
+  }
+
+  .tl-año {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--rojo);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .tl-item h3 { font-size: 18px; font-weight: 800; color: var(--violeta); margin-bottom: 6px; }
+  .tl-item p  { font-size: 15px; color: var(--suave); line-height: 1.7; }
+
+  /* ─── PARTICIPÁ ─── */
+  #participa {
+    background: var(--fondo);
+  }
+
+  .participa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 36px;
+  }
+
+  .participa-card {
+    border-radius: 22px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pc-celeste  { background: var(--celeste); }
+  .pc-naranja  { background: var(--naranja); }
+  .pc-rojo     { background: var(--rojo); }
+
+  .participa-card .icon {
+    font-size: 44px;
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .participa-card h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--violeta);
+    margin-bottom: 10px;
+  }
+
+  .pc-rojo h3 { color: #fff; }
+
+  .participa-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(45,32,32,0.8);
+  }
+
+  .pc-rojo p { color: rgba(255,255,255,0.88); }
+
+  /* ─── REDES ─── */
+  #redes {
+    background: var(--violeta);
+    text-align: center;
+  }
+
+  #redes .section-title { color: #fff; }
+  #redes .section-lead  { color: rgba(255,255,255,0.7); margin: 0 auto 40px; }
+
+  .redes-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .red-card {
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 28px 32px;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s, transform 0.2s;
+    min-width: 160px;
+  }
+
+  .red-card:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-4px);
+  }
+
+  .red-card .red-icon { font-size: 40px; }
+  .red-card .red-name { font-size: 16px; font-weight: 800; }
+  .red-card .red-handle { font-size: 13px; color: rgba(255,255,255,0.55); }
+
+  /* ─── CONTACTO ─── */
+  #contacto {
+    background: #fff;
+  }
+
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 36px;
+  }
+
+  .contacto-info h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--violeta);
+    margin-bottom: 20px;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+
+  .info-item .ic {
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .info-item .txt { font-size: 15px; color: var(--suave); line-height: 1.6; }
+  .info-item .txt a { color: var(--rojo); font-weight: 700; text-decoration: none; }
+  .info-item .txt strong { color: var(--texto); }
+
+  .colectivos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .col-chip {
+    background: var(--celeste);
+    color: var(--violeta);
+    font-size: 13px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+
+  .datos-inst {
+    background: var(--fondo);
+    border-radius: 18px;
+    padding: 28px;
+    border-left: 5px solid var(--naranja);
+  }
+
+  .datos-inst h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--violeta);
+    margin-bottom: 14px;
+  }
+
+  .datos-inst p {
+    font-size: 13px;
+    color: var(--suave);
+    line-height: 1.8;
+  }
+
+  .datos-inst strong { color: var(--texto); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--violeta);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    width: 70px;
+    margin-bottom: 12px;
+    filter: brightness(0) invert(1);
+    opacity: 0.6;
+  }
+
+  footer p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.8;
+  }
+
+  footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
+
+  /* ─── PERSONAJES DECORATIVOS ─── */
+  .deco {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.92;
+  }
+
+  .hero { position: relative; }
+  .hero .deco-explosion {
+    width: 140px;
+    bottom: 40px;
+    left: 40px;
+    transform: rotate(-15deg);
+    animation: floatDeco 7s ease-in-out infinite;
+  }
+
+  .hero .deco-corazon-pelotas {
+    width: 120px;
+    bottom: 60px;
+    right: 60px;
+    transform: rotate(10deg);
+    animation: floatDeco 9s ease-in-out infinite reverse;
+  }
+
+  #quienes { position: relative; overflow: hidden; }
+  #quienes .deco-nube {
+    width: 130px;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.7;
+    transform: scaleX(-1);
+  }
+
+  #hacemos { position: relative; overflow: hidden; }
+  #hacemos .deco-tambores {
+    width: 110px;
+    top: 30px;
+    right: 30px;
+    opacity: 0.75;
+    transform: rotate(10deg);
+  }
+
+  #hacemos .deco-microfono {
+    width: 90px;
+    bottom: 30px;
+    left: 20px;
+    opacity: 0.7;
+    transform: rotate(-10deg);
+  }
+
+  #historia { position: relative; overflow: hidden; }
+  #historia .deco-gusano {
+    width: 160px;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.7;
+  }
+
+  #participa { position: relative; overflow: hidden; }
+  #participa .deco-corazon-rojo {
+    width: 110px;
+    top: 30px;
+    right: 40px;
+    opacity: 0.75;
+    animation: floatDeco 8s ease-in-out infinite;
+  }
+
+  #contacto { position: relative; overflow: hidden; }
+  #contacto .deco-pajaro {
+    width: 130px;
+    bottom: 20px;
+    right: 30px;
+    opacity: 0.7;
+    transform: scaleX(-1);
+  }
+
+  .hero .deco-cara-fuego {
+    width: 110px;
+    top: 100px;
+    right: 60px;
+    animation: floatDeco2 8s ease-in-out infinite;
+  }
+
+  @keyframes floatDeco2 {
+    0%, 100% { transform: translateY(0) rotate(10deg); }
+    50% { transform: translateY(-10px) rotate(15deg); }
+  }
+
+  #barrio { position: relative; overflow: hidden; }
+  #barrio .deco-pajaro-tropical {
+    width: 120px;
+    bottom: 20px;
+    left: 20px;
+    opacity: 0.75;
+    transform: scaleX(-1);
+  }
+
+  #redes { position: relative; overflow: hidden; }
+  #redes .deco-lampara {
+    width: 100px;
+    top: 30px;
+    left: 40px;
+    opacity: 0.6;
+    transform: rotate(-15deg);
+  }
+
+  footer { position: relative; overflow: hidden; }
+  footer .deco-corazon-cara {
+    width: 80px;
+    position: absolute;
+    bottom: 16px;
+    right: 24px;
+    opacity: 0.4;
+  }
+
+  @keyframes floatDeco {
+    0%, 100% { transform: translateY(0) rotate(-15deg); }
+    50% { transform: translateY(-12px) rotate(-10deg); }
+  }
+
+  /* ─── CARRUSEL ─── */
+  .carousel {
+    position: relative;
+    width: 100%;
+    margin-top: 28px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.06);
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    aspect-ratio: 16/9;
+    background: rgba(92,39,84,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .carousel-placeholder {
+    font-size: 40px;
+    opacity: 0.3;
+  }
+
+  .carousel-placeholder-text {
+    font-size: 13px;
+    color: var(--suave);
+    font-weight: 600;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .carousel-btn:hover { background: #fff; }
+  .carousel-btn.prev { left: 10px; }
+  .carousel-btn.next { right: 10px; }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--violeta);
+    opacity: 0.2;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    border: none;
+  }
+
+  .carousel-dot.active { opacity: 0.8; }
+
+  /* ─── HAMBURGUESA ─── */
+  .lang-btn { font-size: 13px; font-weight: 700; color: var(--violeta); text-decoration: none; padding: 6px 12px; border-radius: 999px; border: 1.5px solid var(--violeta); transition: background 0.2s; white-space: nowrap; }
+  .lang-btn:hover { background: var(--violeta); color: #fff; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--violeta);
+    border-radius: 3px;
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0; right: 0;
+    background: rgba(255,253,247,0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(92,39,84,0.1);
+    padding: 16px 24px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--suave);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 12px 16px;
+    border-radius: 10px;
+    transition: background 0.2s;
+  }
+
+  .mobile-menu a:hover { background: rgba(92,39,84,0.08); }
+
+  .mobile-menu .nav-ig {
+    background: linear-gradient(135deg, var(--naranja), var(--rojo));
+    color: #fff !important;
+    margin-top: 8px;
+    text-align: center;
+    border-radius: 999px !important;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 700px) {
+    nav { padding: 0 16px; }
+    .nav-links { display: none; }
+    .lang-btn { font-size: 13px; font-weight: 700; color: var(--violeta); text-decoration: none; padding: 6px 12px; border-radius: 999px; border: 1.5px solid var(--violeta); transition: background 0.2s; white-space: nowrap; }
+  .lang-btn:hover { background: var(--violeta); color: #fff; }
+
+  .hamburger { display: flex; }
+    .nav-logo { font-size: 16px; white-space: nowrap; }
+
+    section { padding: 60px 16px; }
+    .quienes-inner { grid-template-columns: 1fr; }
+    .contacto-grid { grid-template-columns: 1fr; }
+
+    .hero .deco-cara-fuego { display: none; }
+    .hero .deco-explosion { width: 70px; }
+    .hero .deco-corazon-pelotas { width: 60px; }
+    #quienes .deco-nube { width: 70px; }
+    #hacemos .deco-tambores { width: 60px; }
+    #hacemos .deco-microfono { display: none; }
+    #historia .deco-gusano { width: 80px; }
+    #participa .deco-corazon-rojo { width: 60px; }
+    #contacto .deco-pajaro { width: 70px; }
+    #barrio .deco-pajaro-tropical { display: none; }
+    #redes .deco-lampara { width: 50px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="JSF_Logotipo_Barrilete_Juegoteca.png" alt="Barrilete" style="height:36px; width:auto; vertical-align:middle;">
+    Juegoteca <span>Sin Fin</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#quienes">About Us</a></li>
+    <li><a href="#hacemos">What We Do</a></li>
+    <li><a href="#barrio">Our Neighborhood</a></li>
+    <li><a href="#historia">History</a></li>
+    <li><a href="#participa">Get Involved</a></li>
+    <li><a href="#contacto">Contact</a></li>
+    <li><a href="https://www.instagram.com/lajuegotecasinfin" target="_blank" class="nav-ig"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle; margin-right:4px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram</a></li>
+  </ul>
+  <a href="index.html" class="lang-btn">🌐 Español</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- MENÚ MOBILE -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#quienes" onclick="closeMenu()">About Us</a>
+  <a href="#hacemos" onclick="closeMenu()">What We Do</a>
+  <a href="#barrio" onclick="closeMenu()">Our Neighborhood</a>
+  <a href="#historia" onclick="closeMenu()">History</a>
+  <a href="#participa" onclick="closeMenu()">Get Involved</a>
+  <a href="#contacto" onclick="closeMenu()">Contact</a>
+  <a href="https://www.instagram.com/lajuegotecasinfin" target="_blank" class="nav-ig">Instagram</a>
+</div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // Carrusel
+  const carouselState = {};
+
+  function initCarousel(id, total) {
+    carouselState[id] = { current: 0, total };
+  }
+
+  function moveCarousel(id, dir) {
+    const state = carouselState[id];
+    state.current = (state.current + dir + state.total) % state.total;
+    updateCarousel(id);
+  }
+
+  function goToSlide(id, index) {
+    carouselState[id].current = index;
+    updateCarousel(id);
+  }
+
+  function updateCarousel(id) {
+    const state = carouselState[id];
+    document.getElementById('track-' + id).style.transform = `translateX(-${state.current * 100}%)`;
+    document.querySelectorAll('#dots-' + id + ' .carousel-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === state.current);
+    });
+  }
+
+  initCarousel('quienes', 3);
+  initCarousel('hacemos', 3);
+  initCarousel('participa', 3);
+</script>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-logo-wrap">
+    <img
+      src="JSF_Logotipo_Barrilete_Juegoteca.png"
+      alt="Logo Juegoteca Sin Fin"
+      class="hero-logo"
+    >
+  </div>
+  <h1>Playing and growing<br><em>together in the neighborhood</em></h1>
+  <p class="hero-desc">
+    Somos una organización comunitaria de Boulogne, Buenos Aires,
+    que promueve el juego, la cultura y los derechos humanos desde 1998.
+  </p>
+  <div class="hero-badges">
+    <span class="badge">🎨 Art Workshops</span>
+    <span class="badge">🎲 Free Play</span>
+    <span class="badge">🏘️ Community</span>
+    <span class="badge">👶 Children &amp; Adults</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#participa" class="btn btn-hero">Join us!</a>
+    <a href="https://donaronline.org/juegoteca-sin-fin/que-el-juego-no-se-corte" target="_blank" class="btn btn-hero">💚 Donate now</a>
+    <a href="#quienes" class="btn btn-hero">Learn more</a>
+  </div>
+
+  <img src="JSF_Cara_de_fuego.png" alt="" class="deco deco-cara-fuego">
+  <img src="JSF_Explosion.png" alt="" class="deco deco-explosion">
+  <img src="JSF_corazón_pelotas.png" alt="" class="deco deco-corazon-pelotas">
+</div>
+
+<!-- QUIÉNES SOMOS -->
+<section id="quienes">
+  <div class="container">
+    <div class="quienes-inner">
+      <div>
+        <span class="section-tag tag-celeste">About Us</span>
+        <h2 class="section-title">A space for play, culture, and community</h2>
+        <p class="section-lead">
+          Juegoteca Sin Fin is a <strong>non-profit organization</strong> that, since 1998, has dedicated itself to promoting play, leisure, and cultural activities for children, youth, and adults as a fundamental human right.
+        </p>
+        <p class="section-lead">
+          Our goal is to contribute to people's <strong>holistic development</strong> and foster social integration through play and community cultural initiatives.
+        </p>
+      </div>
+      <div class="quienes-visual">
+        <div class="quienes-card">
+          <div class="año">1998</div>
+          <p>Since our founding, we have focused on a fundamental mission: <strong>social development through play and recreation</strong> for children and adults in our neighborhood.</p>
+          <div class="stat-chips">
+            <div class="stat-chip">
+              <span class="num">+25</span>
+              <span class="lbl">years</span>
+            </div>
+            <div class="stat-chip">
+              <span class="num">3</span>
+              <span class="lbl">neighborhoods</span>
+            </div>
+            <div class="stat-chip">
+              <span class="num">100%</span>
+              <span class="lbl">volunteer-led</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel" id="carousel-quienes">
+      <div class="carousel-track" id="track-quienes">
+        <div class="carousel-slide">
+          <img src="foto-quienes-1.jpg" alt="Actividad en el patio">
+        </div>
+        <div class="carousel-slide">
+          <img src="foto-quienes-2.jpg" alt="Niña en la juegoteca">
+        </div>
+        <div class="carousel-slide">
+          <img src="foto-quienes-3.jpg" alt="Equipo de voluntarios">
+        </div>
+      </div>
+      <button class="carousel-btn prev" onclick="moveCarousel('quienes', -1)">‹</button>
+      <button class="carousel-btn next" onclick="moveCarousel('quienes', 1)">›</button>
+    </div>
+    <div class="carousel-dots" id="dots-quienes">
+      <button class="carousel-dot active" onclick="goToSlide('quienes', 0)"></button>
+      <button class="carousel-dot" onclick="goToSlide('quienes', 1)"></button>
+      <button class="carousel-dot" onclick="goToSlide('quienes', 2)"></button>
+    </div>
+  </div>
+  <img src="JSF_personaje_nube.png" alt="" class="deco deco-nube">
+</section>
+
+<!-- PARTICIPÁ -->
+<section id="participa">
+  <div class="container">
+    <span class="section-tag tag-celeste">Get Involved</span>
+    <h2 class="section-title">Join the Juegoteca!</h2>
+    <p class="section-lead">
+      For over 25 years, the Juegoteca has been built by volunteers. No matter your background or how much time you have to spare, there is always a place for you.
+    </p>
+    <div class="participa-grid">
+      <div class="participa-card pc-rojo">
+        <span class="icon">💚</span>
+        <h3>Financial Donations</h3>
+        <p>As an independent, self-governing civil association, we rely entirely on the generosity of supportive individuals and institutions. To continue expanding our impact, we need sponsors and patrons.</p>
+      </div>
+      <div class="participa-card pc-celeste">
+        <span class="icon">🙌</span>
+        <h3>Volunteering</h3>
+        <p>Workshop facilitators, play leaders, librarians, and community cinema assistants. We also welcome university and college interns. We invite you to reach out and connect!</p>
+      </div>
+      <div class="participa-card pc-naranja">
+        <span class="icon">📦</span>
+        <h3>Donating Items</h3>
+        <p>For our community charity bazaar, we welcome clothes, bedding, tableware, and kitchen utensils. For the juegoteca, we need complete board games and stationery or school supplies.</p>
+      </div>
+    </div>
+    <div class="carousel" id="carousel-participa">
+      <div class="carousel-track" id="track-participa">
+        <div class="carousel-slide">
+          <img src="foto-participa-1.jpg" alt="Voluntario jugando con niños">
+        </div>
+        <div class="carousel-slide">
+          <img src="foto-participa-2.jpg" alt="Niños en la merienda">
+        </div>
+        <div class="carousel-slide">
+          <img src="foto-participa-3.jpg" alt="Actividad comunitaria">
+        </div>
+      </div>
+      <button class="carousel-btn prev" onclick="moveCarousel('participa', -1)">‹</button>
+      <button class="carousel-btn next" onclick="moveCarousel('participa', 1)">›</button>
+    </div>
+    <div class="carousel-dots" id="dots-participa">
+      <button class="carousel-dot active" onclick="goToSlide('participa', 0)"></button>
+      <button class="carousel-dot" onclick="goToSlide('participa', 1)"></button>
+      <button class="carousel-dot" onclick="goToSlide('participa', 2)"></button>
+    </div>
+    <div style="text-align:center; margin-top: 36px;">
+      <a href="mailto:juegotecasinfin@yahoo.com.ar" class="btn btn-violeta">✉️ Write to us</a>
+    </div>
+    <div class="donar-banner">
+      <h3>💚 Help us keep the game going!</h3>
+      <p>Your donation helps us maintain our space, materials, and activities for all the children in the neighborhood.</p>
+      <a href="https://donaronline.org/juegoteca-sin-fin/que-el-juego-no-se-corte" target="_blank" class="btn-donar-grande">Donate now</a>
+    </div>
+  </div>
+  <img src="JSF_corazon_rojo.png" alt="" class="deco deco-corazon-rojo">
+</section>
+
+<!-- QUÉ HACEMOS -->
+<section id="hacemos">
+  <div class="container">
+    <span class="section-tag tag-naranja">What We Do</span>
+    <h2 class="section-title">Workshops and activities for the entire community</h2>
+    <p class="section-lead">
+      Our activities promote social inclusion, active participation, and personal development through creative learning, play, and open access to cultural resources.
+    </p>
+    <div class="talleres-grid">
+      <div class="taller t-celeste">
+        <span class="icon">🎲</span>
+        <h3>Free Play</h3>
+        <p>Organized, competitive, and cooperative games for multiple ages. For boys and girls.</p>
+      </div>
+      <div class="taller t-naranja">
+        <span class="icon">🎨</span>
+        <h3>Visual Arts</h3>
+        <p>Experimentation with conventional and non-conventional artistic techniques. For children aged 6 to 12.</p>
+      </div>
+      <div class="taller t-rojo">
+        <span class="icon">📖</span>
+        <h3>Storytelling</h3>
+        <p>Exploring the world of books through reading aloud, games, theatrical performances, and drawing. For boys and girls.</p>
+      </div>
+      <div class="taller t-violeta">
+        <span class="icon">🧠</span>
+        <h3>Memory Workshop</h3>
+        <p>Fun exercises to stimulate memory and enjoy a welcoming, shared space with peers. For older adults.</p>
+      </div>
+      <div class="taller t-celeste2">
+        <span class="icon">🎵</span>
+        <h3>Canto</h3>
+        <p>Group singing featuring a repertoire chosen by the participants themselves. For adults.</p>
+      </div>
+      <div class="taller t-celeste">
+        <span class="icon">✍️</span>
+        <h3>Creative Writing</h3>
+        <p>Sharing our own life stories or inventing brand-new ones. No prior experience needed. For adults.</p>
+      </div>
+      <div class="taller t-naranja">
+        <span class="icon">📚</span>
+        <h3>Mafalda Library</h3>
+        <p>More than 2,000 books for all ages, available for loan to our local community.</p>
+      </div>
+      <div class="taller t-rojo">
+        <span class="icon">🤝</span>
+        <h3>Networking</h3>
+        <p>We actively participate in the Boulogne local organization network, working as a team to improve our neighborhood.</p>
+      </div>
+      <div class="taller t-violeta">
+        <span class="icon">🎓</span>
+        <h3>University Internships</h3>
+        <p>We host students from various universities who complete their community service internships at our organization.</p>
+      </div>
+    </div>
+    <div class="carousel" id="carousel-hacemos">
+      <div class="carousel-track" id="track-hacemos">
+        <div class="carousel-slide">
+          <img src="foto-hacemos-1.jpg" alt="Taller de artes plásticas">
+        </div>
+        <div class="carousel-slide">
+          <img src="foto-hacemos-2.jpg" alt="Niña pintando">
+        </div>
+        <div class="carousel-slide">
+          <img src="foto-hacemos-3.jpg" alt="Lectura con niños">
+        </div>
+      </div>
+      <button class="carousel-btn prev" onclick="moveCarousel('hacemos', -1)">‹</button>
+      <button class="carousel-btn next" onclick="moveCarousel('hacemos', 1)">›</button>
+    </div>
+    <div class="carousel-dots" id="dots-hacemos">
+      <button class="carousel-dot active" onclick="goToSlide('hacemos', 0)"></button>
+      <button class="carousel-dot" onclick="goToSlide('hacemos', 1)"></button>
+      <button class="carousel-dot" onclick="goToSlide('hacemos', 2)"></button>
+    </div>
+  </div>
+  <img src="JSF_tambores.png" alt="" class="deco deco-tambores">
+  <img src="JSF_microfono.png" alt="" class="deco deco-microfono">
+</section>
+
+<!-- NUESTRO BARRIO -->
+<section id="barrio">
+  <div class="container">
+    <span class="section-tag tag-violeta">Our Neighborhood</span>
+    <h2 class="section-title">Roots in Boulogne</h2>
+    <p class="section-lead">
+      The direct beneficiaries of Juegoteca Sin Fin's activities are the residents of the Boulogne neighborhoods, located in the San Isidro district.
+    </p>
+    <div class="barrio-cards">
+      <div class="barrio-card">
+        <h3>🏘️ Santa Ana Neighborhood</h3>
+        <p>Where Juegoteca was born in 1998. The historical heart of our organization.</p>
+      </div>
+      <div class="barrio-card">
+        <h3>🏘️ Bajo Boulogne</h3>
+        <p>One of the key communities we reach through our activities and workshops.</p>
+      </div>
+      <div class="barrio-card">
+        <h3>🏘️ San Isidro Neighborhood</h3>
+        <p>Donde está nuestra sede actual, en Escalera 86, PB B.</p>
+      </div>
+    </div>
+  </div>
+  <img src="JSF_Pájaro_tropical.png" alt="" class="deco deco-pajaro-tropical">
+</section>
+
+<!-- HISTORIA -->
+<section id="historia">
+  <div class="container">
+    <span class="section-tag tag-rojo">History</span>
+    <h2 class="section-title">Over 25 years of playing together</h2>
+    <p class="section-lead">
+      A history built on goodwill, community, and a lot of play.
+    </p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-año">1998</div>
+        <h3>Endless Saturdays</h3>
+        <p>Lekotek, a Swedish NGO, in cooperation with local youth from the Santa Ana neighborhood, launched a popular recreation space known as <em>Endless Saturdays</em>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-año">2001</div>
+        <h3>Independence</h3>
+        <p>Sábados Sin Fin became independent from Lekotek and was placed entirely in the hands of local volunteers—both for organizing activities and sustaining the project.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-año">2005</div>
+        <h3>A Structural Change</h3>
+        <p>The project began offering specialized workshops—visual arts, photography, cinema, and theater—conducted in small groups on different days of the week.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-año">2006</div>
+        <h3>Our Own Space</h3>
+        <p>A permanent headquarters was established, and new workshops were added: singing for adults, crafts for teenagers, a toy library for toddlers, and community cinema.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-año">2010</div>
+        <h3>Non-Profit Organization</h3>
+        <p>Inscripción formal como Non-Profit Organization ante la DPPJ (Resolución Nº0877, 26/02/2010), con matrícula Nº35.151.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-año">Hoy</div>
+        <h3>We Keep Playing</h3>
+        <p>More than 25 years later, Juegoteca Sin Fin remains a 100% volunteer-run, community-driven, and entirely free space for the neighborhood.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REDES SOCIALES -->
+<section id="redes">
+    <span class="section-tag tag-naranja">Follow us</span>
+    <h2 class="section-title">Find us online</h2>
+    <p class="section-lead">
+      Follow our activities, news, and neighborhood moments on Instagram and Facebook.
+    </p>
+    <div class="redes-grid">
+      <a href="https://www.instagram.com/lajuegotecasinfin" target="_blank" class="red-card">
+        <span class="red-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></span>
+        <span class="red-name">Instagram</span>
+        <span class="red-handle">@lajuegotecasinfin</span>
+      </a>
+      <a href="https://www.facebook.com/lajuegotecasinfin/" target="_blank" class="red-card">
+        <span class="red-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span>
+        <span class="red-name">Facebook</span>
+        <span class="red-handle">lajuegotecasinfin</span>
+      </a>
+      <a href="mailto:juegotecasinfin@yahoo.com.ar" class="red-card">
+        <span class="red-icon">✉️</span>
+        <span class="red-name">Email</span>
+        <span class="red-handle">juegotecasinfin@yahoo.com.ar</span>
+      </a>
+      <a href="https://www.youtube.com/@juegotecasinfin9274" target="_blank" class="red-card">
+        <span class="red-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span>
+        <span class="red-name">YouTube</span>
+        <span class="red-handle">@juegotecasinfin9274</span>
+      </a>
+    </div>
+  </div>
+  <img src="JSF_lámpara.png" alt="" class="deco deco-lampara">
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <span class="section-tag tag-violeta">Contact</span>
+    <h2 class="section-title">Where are we?</h2>
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <h3>How to find us</h3>
+        <div class="info-item">
+          <span class="ic">📍</span>
+          <div class="txt">
+            <strong>Escalera 96, PB B — San Isidro Neighborhood</strong><br>
+            Panamericana and Camino Real Morón<br>
+            Boulogne sur Mer, San Isidro District<br>
+            Buenos Aires, Argentina
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="ic">📧</span>
+          <div class="txt">
+            <a href="mailto:juegotecasinfin@yahoo.com.ar">juegotecasinfin@yahoo.com.ar</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="ic">🚌</span>
+          <div class="txt">
+            <strong>Nearby bus lines:</strong>
+            <div class="colectivos">
+              <span class="col-chip">15</span>
+              <span class="col-chip">60</span>
+              <span class="col-chip">87</span>
+              <span class="col-chip">194</span>
+              <span class="col-chip">203</span>
+              <span class="col-chip">204</span>
+              <span class="col-chip">314</span>
+              <span class="col-chip">333</span>
+              <span class="col-chip">371</span>
+              <span class="col-chip">407</span>
+              <span class="col-chip">437</span>
+              <span class="col-chip">707</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="datos-inst">
+        <h3>Institutional Data</h3>
+        <p>
+          <strong>Nombre:</strong> Non-Profit Organization Juegoteca Sin Fin<br><br>
+          <strong>Legal address:</strong> Panamericana y Camino Real, Barrio San Isidro, Escalera 96 PB B, 1609 Boulogne Sur Mer, Partido de San Isidro, Provincia de Buenos Aires<br><br>
+          <strong>Registration No.:</strong> Nº35.151<br><br>
+          <strong>DPPJ Registration:</strong> Resolución Nº0877 del 26/02/2010
+        </p>
+      </div>
+    </div>
+  </div>
+  <img src="JSF_Pájaro_zanahoria.png" alt="" class="deco deco-pajaro">
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="JSF_Corazón_con_cara.png" alt="" class="deco-corazon-cara">
+  <img src="JSF_Logotipo_Juegoteca.png" alt="Juegoteca Sin Fin" class="footer-logo">
+  <p>
+    © 2025 Non-Profit Organization Juegoteca Sin Fin · Boulogne, Buenos Aires<br>
+    <a href="mailto:juegotecasinfin@yahoo.com.ar">juegotecasinfin@yahoo.com.ar</a> ·
+    <a href="https://www.instagram.com/lajuegotecasinfin" target="_blank">@lajuegotecasinfin</a>
+  </p>
+</footer>
+
+</body>
+</html>
